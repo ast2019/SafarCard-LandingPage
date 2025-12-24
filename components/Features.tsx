@@ -37,18 +37,18 @@ const Benefits: React.FC = () => {
   ];
 
   return (
-    <section id="benefits" className="py-20 px-6">
+    <section id="benefits" className="py-20 px-6 bg-[#f8fafc]">
       <div className="max-w-[1156px] mx-auto">
-        <h2 className="text-3xl font-black text-white text-center mb-12">چرا سازمان‌ها <span className="text-[#ea4037]">سفر کارت</span> را انتخاب می‌کنند؟</h2>
+        <h2 className="text-3xl font-black text-slate-900 text-center mb-12">چرا سازمان‌ها <span className="text-[#ea4037]">سفر کارت</span> را انتخاب می‌کنند؟</h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((item, idx) => (
-            <div key={idx} className="glass-panel p-6 rounded-2xl hover:bg-white/[0.06] transition-all group">
-              <div className="w-12 h-12 bg-[#ea4037]/10 rounded-xl flex items-center justify-center text-[#ea4037] mb-4 group-hover:bg-[#ea4037] group-hover:text-white transition-colors">
+            <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all group border border-slate-100">
+              <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-[#ea4037] mb-4 group-hover:bg-[#ea4037] group-hover:text-white transition-colors">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>

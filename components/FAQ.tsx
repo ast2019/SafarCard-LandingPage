@@ -29,30 +29,30 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 px-6">
+    <section id="faq" className="py-20 px-6 bg-white">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-black text-white text-center mb-12">سوالات متداول</h2>
+        <h2 className="text-3xl font-black text-slate-900 text-center mb-12">سوالات متداول</h2>
         
         <div className="space-y-4">
           {items.map((item, index) => (
             <div 
               key={index} 
-              className={`border rounded-2xl bg-white/5 transition-all overflow-hidden ${openIndex === index ? 'border-[#ea4037]/50 bg-white/10' : 'border-white/10'}`}
+              className={`border rounded-2xl transition-all overflow-hidden ${openIndex === index ? 'border-[#ea4037] bg-red-50/50' : 'border-slate-200 bg-white'}`}
             >
               <button 
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-6 text-right"
               >
-                <span className={`text-base lg:text-lg font-bold transition-colors ${openIndex === index ? 'text-white' : 'text-slate-300'}`}>
+                <span className={`text-base lg:text-lg font-bold transition-colors ${openIndex === index ? 'text-[#ea4037]' : 'text-slate-800'}`}>
                   {item.q}
                 </span>
-                <div className={`transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-[#ea4037]' : 'text-slate-500'}`}>
+                <div className={`transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-[#ea4037]' : 'text-slate-400'}`}>
                    <ChevronDownIcon className="w-5 h-5" />
                 </div>
               </button>
               
               <div className={`transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                <div className="px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-red-100/50 pt-4">
                   {item.a}
                 </div>
               </div>

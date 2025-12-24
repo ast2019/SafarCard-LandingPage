@@ -2,7 +2,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import ProductExplainer from './components/PlanOverview'; // Renamed import
+import ProductExplainer from './components/PlanOverview';
 import Benefits from './components/Features';
 import HowItWorks from './components/Steps';
 import MidCTA from './components/MidCTA';
@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#020617] text-slate-200">
+    <div className="min-h-screen flex flex-col font-sans bg-[#f8fafc] text-slate-800">
       <Header />
       <main className="flex-grow">
         <Hero />
