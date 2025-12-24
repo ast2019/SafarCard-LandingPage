@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سفر کارت تی تی شهر | راهکار رفاهی سازمان‌ها</title>
+  <title>سفر کارت تی تی شهر | تجربه سفر بی‌پایان</title>
   
-  <!-- بارگذاری فونت وزیرمتن -->
+  <!-- بارگذاری فونت وزیرمتن با وزن‌های مختلف -->
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
 
   <!-- Tailwind via CDN -->
@@ -22,6 +22,18 @@
             brand: {
               red: '#ea4037',
               dark: '#0b1120',
+              light: '#f8fafc',
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 12s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
             }
           }
         },
@@ -41,25 +53,72 @@
       -moz-osx-font-smoothing: grayscale;
       background-color: #f8fafc; /* Light Slate 50 */
       color: #0f172a; /* Slate 900 */
+      overflow-x: hidden;
     }
 
-    /* Light mode glass effect */
+    /* Enhanced Glassmorphism for Light Mode */
     .glass-panel {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.02), 
+        0 2px 4px -1px rgba(0, 0, 0, 0.02),
+        inset 0 0 20px rgba(255, 255, 255, 0.5);
     }
 
-    .reveal {
+    /* Scroll Reveal Animations */
+    .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(30px);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal.active {
+    .reveal-on-scroll.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Gradient Text */
+    .text-gradient {
+      background: linear-gradient(135deg, #0f172a 0%, #ea4037 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .text-gradient-red {
+      background: linear-gradient(135deg, #ea4037 0%, #b91c1c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Smooth Button Hover */
+    .btn-hover-effect {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-hover-effect::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(255,255,255,0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .btn-hover-effect:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px rgba(234, 64, 55, 0.5);
+    }
+    .btn-hover-effect:hover::after {
+      opacity: 1;
+    }
+
   </style>
 <script type="text/javascript">
   window.RAYCHAT_TOKEN = "b3c7e2b1-88ed-44dd-8e00-bb67fb0d777f";
@@ -84,21 +143,31 @@
 }
 </script>
 </head>
-<body class="selection:bg-[#ea4037] selection:text-white overflow-x-hidden">
+<body class="selection:bg-[#ea4037] selection:text-white">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
   <script>
-    window.addEventListener('scroll', () => {
-      const reveals = document.querySelectorAll(".reveal");
-      for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-          reveals[i].classList.add("active");
-        }
-      }
+    // Intersection Observer for scroll animations
+    document.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+        observer.observe(element);
+      });
     });
-    window.dispatchEvent(new Event('scroll'));
   </script>
 </body>
 </html>

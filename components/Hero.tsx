@@ -1,46 +1,14 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import SafarCard from './SafarCard';
 import { CheckCircleIcon } from './Icons';
 
 const Hero: React.FC = () => {
-  const blob1Ref = useRef<HTMLDivElement>(null);
-  const blob2Ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      
-      // Apply parallax transforms using translate3d for hardware acceleration
-      if (blob1Ref.current) {
-        // Moves down slower than scroll (0.2 speed)
-        blob1Ref.current.style.transform = `translate3d(0, ${scrollY * 0.2}px, 0)`;
-      }
-      if (blob2Ref.current) {
-        // Moves up slightly against scroll (-0.15 speed)
-        blob2Ref.current.style.transform = `translate3d(0, ${scrollY * -0.15}px, 0)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <section className="relative pt-24 pb-32 lg:pt-32 lg:pb-40 overflow-hidden bg-[#f8fafc]">
-      {/* Dynamic Background Elements with Parallax Refs */}
-      <div 
-        ref={blob1Ref}
-        className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-red-50/80 rounded-full blur-[120px] pointer-events-none animate-pulse-slow will-change-transform"
-      ></div>
-      <div 
-        ref={blob2Ref}
-        className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-50/80 rounded-full blur-[100px] pointer-events-none animate-pulse-slow will-change-transform" 
-        style={{animationDelay: '1s'}}
-      ></div>
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-red-50/80 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
+      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-50/80 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" style={{animationDelay: '1s'}}></div>
       
       {/* Floating Shapes */}
       <div className="absolute top-20 left-20 w-12 h-12 border-4 border-slate-200/50 rounded-full animate-float hidden lg:block"></div>
@@ -50,7 +18,7 @@ const Hero: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
           
           {/* Left Column: Copy & Form */}
-          <div className="text-center lg:text-right space-y-8 reveal-on-scroll">
+          <div className="text-center lg:text-right space-y-8 reveal-on-scroll is-visible">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-slate-200 rounded-full shadow-sm hover:shadow-md transition-shadow cursor-default">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ea4037] opacity-75"></span>
@@ -114,7 +82,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: Card Mockup with 3D feel */}
-          <div className="relative reveal-on-scroll perspective-1000 group/card" style={{transitionDelay: '200ms'}}>
+          <div className="relative reveal-on-scroll perspective-1000 group/card">
              {/* Abstract Backdrop */}
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-slate-200 to-slate-50 rounded-full opacity-50 blur-3xl -z-10"></div>
              
