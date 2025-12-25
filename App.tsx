@@ -3,7 +3,6 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProductExplainer from './components/PlanOverview';
-import Calculator from './components/Calculator';
 import Benefits from './components/Features';
 import HowItWorks from './components/Steps';
 import MidCTA from './components/MidCTA';
@@ -19,9 +18,6 @@ const App: React.FC = () => {
         <Hero />
         <div className="reveal">
           <ProductExplainer />
-        </div>
-        <div className="reveal">
-          <Calculator />
         </div>
         <div className="reveal">
           <Benefits />
