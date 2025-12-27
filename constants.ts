@@ -1,13 +1,26 @@
 
-export const THEME_COLORS = {
-  primary: "#ea4037",
-  primaryDark: "#b91c1c",
-  background: "#020617", // Slate 950
-  surface: "#0f172a", // Slate 900
-  surfaceHighlight: "rgba(255,255,255,0.05)",
-  textMain: "#f8fafc",
-  textSecondary: "#94a3b8",
-  border: "rgba(255,255,255,0.1)",
+export const CONTACT_INFO = {
+  email: "info@ttshahr.com",
+  supportMob: "09120912408",
+  supportMobDisplay: "۰۹۱۲۰۹۱۲۴۰۸",
+  officeTel: "02186097591",
+  officeTelDisplay: "۰۲۱۸۶۰۹۷۵۹۱",
+  address: "تهران، خیابان استاد نجات الهی جنوبی، خیابان صارمی، پلاک ۴۶"
 };
 
-// Removed Loan Configs as they are no longer needed for the Landing Page
+export const NAVIGATION = [
+  { label: "سفر کارت چیست؟", href: "#overview" },
+  { label: "مزایا", href: "#benefits" },
+  { label: "نحوه اجرا", href: "#steps" },
+  { label: "پرسش‌ها", href: "#faq" },
+  { label: "تماس", href: "#contact" },
+];
+
+export const BENEFITS = [
+  { title: "کنترل بودجه", desc: "تعیین سقف و سیاست مصرف برای هر نفر/گروه", icon: "ChartIcon" },
+  { title: "کاهش کار اداری HR", desc: "حذف هماهنگی‌های دستی و فرآیندهای پراکنده", icon: "UsersIcon" },
+  { title: "رضایت واقعی افراد", desc: "آزادی انتخاب در چارچوب سیاست سازمان", icon: "CheckCircleIcon" },
+  { title: "برندینگ کارفرمایی", desc: "صدور کارت با هویت برند سازمان", icon: "BuildingIcon" },
+  { title: "گزارش‌گیری و شفافیت", desc: "گزارش‌های دوره‌ای برای تصمیم‌گیری بهتر", icon: "ChartIcon" },
+  { title: "پشتیبانی اجرایی", desc: "همراهی تیم پشتیبانی برای راه‌اندازی و ادامه مسیر", icon: "CardIcon" },
+];
