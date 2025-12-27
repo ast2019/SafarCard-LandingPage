@@ -7,55 +7,43 @@ const FAQ: React.FC = () => {
 
   const items = [
     {
-      q: "سفر کارت برای چه تعداد پرسنل قابل صدور است؟",
-      a: "محدودیتی در تعداد وجود ندارد. از استارتاپ‌های ۱۰ نفره تا سازمان‌های چند هزار نفره می‌توانند از این خدمات استفاده کنند."
+      q: "سفر کارت برای چه سازمان‌هایی مناسب است؟",
+      a: "برای شرکت‌ها و سازمان‌هایی که می‌خواهند مزیت رفاهی یا باشگاه مشتریان سفر را هدفمند، قابل‌کنترل و قابل‌اندازه‌گیری اجرا کنند."
     },
     {
-      q: "آیا می‌توان کارت را فقط برای خدمات خاصی محدود کرد؟",
-      a: "بله، شما می‌توانید تعریف کنید که اعتبار کارت فقط برای رزرو هتل باشد، یا فقط تور، و یا برای تمام خدمات گردشگری باز باشد."
+      q: "آیا می‌توان افراد را گروه‌بندی کرد؟",
+      a: "بله، می‌توانید افراد را گروه‌بندی کنید و برای هر گروه سیاست اعتبار متفاوت تعریف کنید."
     },
     {
-      q: "آیا امکان شارژ مجدد کارت‌ها وجود دارد؟",
-      a: "بله، کارت‌ها قابلیت شارژ مجدد به صورت گروهی یا فردی را دارند و می‌توانند به عنوان پاداش مستمر استفاده شوند."
+      q: "اعتبارها چطور شارژ/تمدید می‌شوند؟",
+      a: "مطابق سیاست سازمان (ماهانه/فصلی/سالانه) و با فرایند توافق‌شده انجام می‌شود."
     },
     {
-      q: "صدور کارت چقدر زمان می‌برد؟",
-      a: "پس از عقد قرارداد و دریافت لیست پرسنل، فرآیند صدور کارت‌های دیجیتال آنی و کارت‌های فیزیکی بین ۳ تا ۷ روز کاری زمان می‌برد."
+      q: "آیا امکان محدودسازی مصرف وجود دارد؟",
+      a: "بله، قوانین مصرف بر اساس سیاست‌های سازمان تنظیم می‌شود."
     },
     {
-      q: "آیا این اعتبار قابلیت نقد شدن دارد؟",
-      a: "خیر، اعتبار سفر کارت صرفاً برای خرید خدمات از پلتفرم تی‌تی‌شهر قابل استفاده است و به همین دلیل تضمین‌کننده هزینه شدن بودجه رفاهی در مسیر درست است."
+      q: "راه‌اندازی چقدر زمان می‌برد؟",
+      a: "پس از نهایی شدن اطلاعات سازمان، زمان‌بندی دقیق در جلسه مشاوره اعلام می‌شود."
+    },
+    {
+      q: "قدم بعدی چیست؟",
+      a: "ایمیل خود را در فرم‌ها ثبت کنید یا به info@ttshahr.com پیام دهید تا کاتالوگ ارسال و جلسه هماهنگ شود."
     }
   ];
 
   return (
-    <section id="faq" className="py-20 px-6 bg-white">
+    <section id="faq" className="py-24 px-6 bg-white">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-black text-slate-900 text-center mb-12">سوالات متداول</h2>
-        
+        <h2 className="text-3xl font-black text-slate-900 text-center mb-12">پرسش‌های متداول</h2>
         <div className="space-y-4">
           {items.map((item, index) => (
-            <div 
-              key={index} 
-              className={`border rounded-2xl transition-all overflow-hidden ${openIndex === index ? 'border-[#ea4037] bg-red-50/50' : 'border-slate-200 bg-white'}`}
-            >
-              <button 
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-right"
-              >
-                <span className={`text-base lg:text-lg font-bold transition-colors ${openIndex === index ? 'text-[#ea4037]' : 'text-slate-800'}`}>
-                  {item.q}
-                </span>
-                <div className={`transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-[#ea4037]' : 'text-slate-400'}`}>
-                   <ChevronDownIcon className="w-5 h-5" />
-                </div>
+            <div key={index} className={`border rounded-2xl overflow-hidden transition-all ${openIndex === index ? 'border-[#ea4037] bg-red-50/20' : 'border-slate-200'}`}>
+              <button onClick={() => setOpenIndex(openIndex === index ? null : index)} className="w-full flex items-center justify-between p-6 text-right">
+                <span className={`font-bold ${openIndex === index ? 'text-[#ea4037]' : 'text-slate-800'}`}>{item.q}</span>
+                <ChevronDownIcon className={`w-5 h-5 transition-transform ${openIndex === index ? 'rotate-180 text-[#ea4037]' : 'text-slate-400'}`} />
               </button>
-              
-              <div className={`transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-red-100/50 pt-4">
-                  {item.a}
-                </div>
-              </div>
+              {openIndex === index && <div className="px-6 pb-6 text-slate-600 text-sm leading-relaxed border-t border-red-100/30 pt-4">{item.a}</div>}
             </div>
           ))}
         </div>
