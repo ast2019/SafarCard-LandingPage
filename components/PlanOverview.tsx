@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ProductExplainer: React.FC = () => (
@@ -17,13 +16,9 @@ const ProductExplainer: React.FC = () => (
           </div>
         </div>
         <div className="reveal-on-scroll delay-150">
-          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-slate-900">
-             <img src="/state-airline-f45c55b2.svg" alt="TTShahr Platform" className="absolute inset-0 w-full h-full object-cover opacity-60" />
-             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
-                   <svg className="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                </div>
-             </div>
+          <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-video bg-slate-50 flex items-center justify-center p-8">
+             {/* استفاده از لوگوی mosafer1.svg طبق درخواست */}
+             <img src="/mosafer1.svg" alt="Mosafer Illustration" className="w-full h-full object-contain" />
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CONTACT_INFO, NAVIGATION } from '../constants';
 
@@ -28,9 +27,11 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <h4 className="font-black text-lg border-r-4 border-slate-600 pr-3">نمادهای اعتماد</h4>
             <div className="flex flex-wrap gap-3 bg-white/5 p-4 rounded-2xl">
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center"><img src="/Enamad.svg" alt="enamad" className="max-h-full" /></div>
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center"><img src="/Samandehi.svg" alt="samandehi" className="max-h-full" /></div>
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center"><img src="/BankShahr.svg" alt="bank" className="max-h-full" /></div>
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/Enamad.svg" alt="enamad" className="max-h-full" /></div>
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/Samandehi.svg" alt="samandehi" className="max-h-full" /></div>
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/BankShahr.svg" alt="bank" className="max-h-full" /></div>
+              {/* اضافه کردن لوگوی al.svg */}
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/al.svg" alt="al" className="max-h-full" /></div>
             </div>
             <p className="text-[10px] text-slate-500 font-medium leading-relaxed">{CONTACT_INFO.address}</p>
           </div>
