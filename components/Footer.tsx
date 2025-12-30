@@ -1,42 +1,165 @@
+
 import React from 'react';
-import { CONTACT_INFO, NAVIGATION } from '../constants';
 
 const Footer: React.FC = () => {
+  
+  // You should replace these with actual CDN URLs or valid local paths served by your public folder
+  const BankShahrLogo = "/BankShahr.svg";
+  const EnamadLogo = "/Enamad.svg";
+  const SamandehiLogo = "/Samandehi.svg";
+  const MosaferLogo = "/mosafer1.svg";
+  const CaoLogo = "/al.svg";
+
   return (
-    <footer className="bg-brand-dark text-white pt-20 pb-10 px-6">
-      <div className="max-w-[1280px] mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div className="space-y-6">
-            <img src="/logo_tt.svg" alt="تی تی شهر" className="h-20 brightness-0 invert opacity-90" />
-            <p className="text-slate-400 text-sm leading-relaxed font-medium">ما تجربه سفر را برای پرسنل شما لذت‌بخش و مدیریت آن را برای سازمان شفاف می‌کنیم.</p>
-          </div>
-          <div className="space-y-6">
-            <h4 className="font-black text-lg border-r-4 border-brand-red pr-3">تماس با ما</h4>
-            <ul className="space-y-4 text-slate-400 text-sm font-medium">
-              <li>ایمیل: <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-brand-red uppercase">{CONTACT_INFO.email}</a></li>
-              <li className="dir-ltr text-right">پشتیبانی: <a href={`tel:${CONTACT_INFO.supportMob}`} className="hover:text-brand-red">{CONTACT_INFO.supportMobDisplay}</a></li>
-              <li className="dir-ltr text-right">دفتر مرکزی: <a href={`tel:${CONTACT_INFO.officeTel}`} className="hover:text-brand-red">{CONTACT_INFO.officeTelDisplay}</a></li>
-            </ul>
-          </div>
-          <div className="space-y-6">
-            <h4 className="font-black text-lg border-r-4 border-slate-600 pr-3">دسترسی سریع</h4>
-            <nav className="flex flex-col gap-3 text-slate-400 text-sm font-bold">
-              {NAVIGATION.map(link => <a key={link.href} href={link.href} className="hover:text-white transition-colors">{link.label}</a>)}
-            </nav>
-          </div>
-          <div className="space-y-6">
-            <h4 className="font-black text-lg border-r-4 border-slate-600 pr-3">نمادهای اعتماد</h4>
-            <div className="flex flex-wrap gap-3 bg-white/5 p-4 rounded-2xl">
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/Enamad.svg" alt="enamad" className="max-h-full" /></div>
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/Samandehi.svg" alt="samandehi" className="max-h-full" /></div>
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/BankShahr.svg" alt="bank" className="max-h-full" /></div>
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/al.svg" alt="al" className="max-h-full" /></div>
+    <footer className="relative bg-[#0b1120] text-white pt-24 pb-8 overflow-hidden">
+      {/* Visual Enhancements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#ea4037] to-transparent"></div>
+      
+      <div className="absolute top-[-10%] right-[-5%] w-[450px] h-[450px] bg-[#ea4037]/10 rounded-full blur-[120px]"></div>
+
+      <div className="max-w-[1156px] mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
+          
+          {/* Brand & Mission */}
+          <div className="lg:col-span-4 space-y-10">
+            <p className="text-slate-400 text-base leading-relaxed font-medium">
+              تی تی شهر، پیشرو در ارائه راهکارهای نوین گردشگری دیجیتال. با ارائه طرح تسهیلاتی توران، دریچه‌ای جدید به سوی سفرهای اقساطی برای شما می‌گشاییم.
+            </p>
+            <div className="flex gap-4">
+              {['instagram', 'telegram', 'whatsapp'].map((social) => (
+                <a 
+                  key={social} 
+                  href="#" 
+                  className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#ea4037] hover:border-[#ea4037] transition-all group"
+                >
+                  <div 
+                    className="w-5 h-5 bg-slate-400 group-hover:bg-white mask-icon" 
+                    style={{ 
+                      maskImage: `url(https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${social}.svg)`, 
+                      WebkitMaskImage: `url(https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${social}.svg)`, 
+                      maskRepeat: 'no-repeat', 
+                      WebkitMaskRepeat: 'no-repeat', 
+                      maskSize: 'contain', 
+                      WebkitMaskSize: 'contain' 
+                    }} 
+                  />
+                </a>
+              ))}
             </div>
-            <p className="text-[10px] text-slate-500 font-medium leading-relaxed">{CONTACT_INFO.address}</p>
+          </div>
+
+          {/* Navigation */}
+          <div className="lg:col-span-4 grid grid-cols-2 gap-8">
+            <div className="space-y-8">
+              <h4 className="text-lg font-black text-white flex items-center gap-3">
+                <span className="w-1.5 h-6 bg-[#ea4037] rounded-full"></span>
+                خدمات
+              </h4>
+              <ul className="space-y-5">
+                {[
+                  { label: "تورهای داخلی", href: "https://ttshahr.com/tour/" },
+                  { label: "تورهای خارجی", href: "https://ttshahr.com/tour/" },
+                  { label: "خدمات CIP", href: "https://ttshahr.com/ceremonies-cip/" },
+                  { label: "خدمات ویزا", href: "https:/ttshahr.com/visa-2/" }
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-slate-400 hover:text-white transition-all text-sm font-bold flex items-center gap-2">
+                      <span className="w-1 h-1 bg-slate-700 rounded-full"></span>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="space-y-8">
+              <h4 className="text-lg font-black text-white flex items-center gap-3">
+                <span className="w-1.5 h-6 bg-[#ea4037] rounded-full"></span>
+                لینک‌ها
+              </h4>
+              <ul className="space-y-5">
+                {[
+                  { label: "کارت تخفیف", href: "https://ttshahr.com/ceremonies-cip/" },
+                  { label: "پشتیبانی", href: "https://help.raychat.io/fcb7fd33-97ac-4e8a-a42a-458f9b7412fc" },
+                  { label: "سوالات متداول", href: "#faq" },
+                  { label: "تماس با ما", href: "https://ttshahr.com/contact-us/" }
+                ].map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-slate-400 hover:text-white transition-all text-sm font-bold flex items-center gap-2">
+                      <span className="w-1 h-1 bg-slate-700 rounded-full"></span>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Contact Section */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 space-y-8 hover:bg-white/[0.08] transition-colors group">
+              <div className="flex gap-5">
+                <div className="w-12 h-12 bg-[#ea4037]/20 rounded-2xl flex items-center justify-center text-[#ea4037] shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-1">تلفن پشتیبانی</div>
+                  <a href="tel:09120912408" className="text-xl font-black dir-ltr hover:text-[#ea4037] transition-all">۰۹۱۲۰۹۱۲۴۰۸</a>
+                </div>
+              </div>
+              <div className="flex gap-5 border-t border-white/5 pt-6">
+                <div className="w-12 h-12 bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div className="text-[10px] text-slate-500 font-black uppercase tracking-widest mb-1">دفتر مرکزی</div>
+                  <div className="text-[12px] font-bold text-slate-300 leading-relaxed">تهران، خیابان استاد نجات الهی جنوبی، خیابان صارمی، پلاک ۴۶</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="pt-8 border-t border-white/5 text-center text-slate-500 text-[11px] font-bold">
-          &copy; {new Date().getFullYear()} TTShahr Travel Platform. All rights reserved.
+
+        {/* Updated Trust Logos Section */}
+        <div className="pt-12 border-t border-white/5 flex flex-col items-center gap-12">
+          
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 w-full max-w-4xl">
+             {/* Logo 1: Bank Shahr */}
+             <div className="bg-white rounded-3xl flex flex-col items-center justify-center p-4 shadow-xl hover:-translate-y-2 transition-all">
+                <img src={BankShahrLogo} alt="Bank Shahr" className="h-16 w-auto object-contain mb-2" />
+                <span className="text-[10px] font-bold text-slate-400">بانک شهر</span>
+             </div>
+             {/* Logo 2: eNamad */}
+             <div className="bg-white rounded-3xl flex flex-col items-center justify-center p-4 shadow-xl hover:-translate-y-2 transition-all">
+                <img src={EnamadLogo} alt="Enamad" className="h-16 w-auto object-contain mb-2" />
+                <span className="text-[10px] font-bold text-slate-400">نماد اعتماد</span>
+             </div>
+             {/* Logo 3: Samandehi */}
+             <div className="bg-white rounded-3xl flex flex-col items-center justify-center p-4 shadow-xl hover:-translate-y-2 transition-all">
+                <img src={SamandehiLogo} alt="Samandehi" className="h-16 w-auto object-contain mb-2" />
+                <span className="text-[10px] font-bold text-slate-400">ساماندهی</span>
+             </div>
+             {/* Logo 4: Pax Rights */}
+             <div className="bg-white rounded-3xl flex flex-col items-center justify-center p-4 shadow-xl hover:-translate-y-2 transition-all">
+                <img src={MosaferLogo} alt="حقوق مسافر" className="h-16 w-auto object-contain mb-2" />
+                <span className="text-[10px] font-bold text-slate-400">حقوق مسافر</span>
+             </div>
+             {/* Logo 5: CAO */}
+             <div className="bg-white rounded-3xl flex flex-col items-center justify-center p-4 shadow-xl hover:-translate-y-2 transition-all">
+                <img src={CaoLogo} alt="سازمان هواپیمایی کشوری" className="h-16 w-auto object-contain mb-2" />
+                <span className="text-[10px] font-bold text-slate-400">سازمان هواپیمایی کشوری</span>
+             </div>
+          </div>
+
+          <div className="text-center space-y-4">
+            <p className="text-lg font-black text-slate-100">
+              تمامی حقوق مادی و معنوی این طرح متعلق به توسعه گردشگری شهرآیین می باشد.
+            </p>
+            <div className="flex items-center justify-center gap-3 text-[10px] text-slate-600 font-black uppercase tracking-widest">
+              <span>© {new Date().getFullYear()} TTShahr Platform</span>
+            </div>
+          </div>
+          
         </div>
       </div>
     </footer>
