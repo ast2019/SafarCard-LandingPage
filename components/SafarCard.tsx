@@ -2,12 +2,11 @@
 import React, { useState } from 'react';
 
 const SafarCard: React.FC = () => {
-  // استفاده از تصاویر لوکال طبق درخواست کاربر
-  // تصاویر در پوشه public/safarcards قرار دارند
+  // Fix: Use absolute paths for public assets to ensure correct loading from root
   const cards = [
-    "safarcards/01.jpg",
-    "safarcards/03.jpg",
-    "safarcards/05.jpg"
+    "/safarcards/01.jpg",
+    "/safarcards/03.jpg",
+    "/safarcards/05.jpg"
   ];
 
   // مدیریت ترتیب کارت‌ها (ایندکس‌ها)
@@ -60,8 +59,13 @@ const SafarCard: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
                     console.error(`Failed to load image: ${src}`);
-                    // Fallback
-                    (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/1a1a1a/FFF?text=Image+Not+Found';
+                    // Fallback to online image if local fails
+                    const fallbacks = [
+                      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop",
+                      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop",
+                      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop"
+                    ];
+                    (e.target as HTMLImageElement).src = fallbacks[originalIndex % fallbacks.length];
                   }}
                 />
                 
