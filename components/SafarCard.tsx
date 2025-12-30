@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 
 const SafarCard: React.FC = () => {
-  // از تصاویر آنلاین استفاده می‌کنیم تا مطمئن شویم در پیش‌نمایش دیده می‌شوند.
-  // وقتی فایل‌های خود را آپلود کردید، این آدرس‌ها را به './safarcards/01.jpg' و... تغییر دهید.
+  // استفاده از تصاویر لوکال طبق درخواست کاربر
+  // تصاویر در پوشه public/safarcards قرار دارند
   const cards = [
-    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop", // تصویر هواپیما
-    "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop", // تصویر طبیعت
-    "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800&auto=format&fit=crop"  // تصویر جاده
+    "safarcards/01.jpg",
+    "safarcards/03.jpg",
+    "safarcards/05.jpg"
   ];
 
   // مدیریت ترتیب کارت‌ها (ایندکس‌ها)
@@ -56,11 +56,12 @@ const SafarCard: React.FC = () => {
             <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-slate-800">
                 <img 
                   src={src} 
-                  alt={`Card ${originalIndex}`} 
+                  alt={`Safar Card ${originalIndex + 1}`} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
+                    console.error(`Failed to load image: ${src}`);
                     // Fallback
-                    (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/1a1a1a/FFF?text=Image+Load+Error';
+                    (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/1a1a1a/FFF?text=Image+Not+Found';
                   }}
                 />
                 
