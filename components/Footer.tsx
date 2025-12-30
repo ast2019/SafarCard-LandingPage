@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CONTACT_INFO, NAVIGATION } from '../constants';
 
@@ -8,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="max-w-[1280px] mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
-            <img src="/logo_tt.svg" alt="تی تی شهر" className="h-12 brightness-0 invert opacity-90" />
+            <img src="/logo_tt.svg" alt="تی تی شهر" className="h-20 brightness-0 invert opacity-90" />
             <p className="text-slate-400 text-sm leading-relaxed font-medium">ما تجربه سفر را برای پرسنل شما لذت‌بخش و مدیریت آن را برای سازمان شفاف می‌کنیم.</p>
           </div>
           <div className="space-y-6">
@@ -28,9 +27,10 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <h4 className="font-black text-lg border-r-4 border-slate-600 pr-3">نمادهای اعتماد</h4>
             <div className="flex flex-wrap gap-3 bg-white/5 p-4 rounded-2xl">
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center"><img src="/Enamad.svg" alt="enamad" className="max-h-full" /></div>
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center"><img src="/Samandehi.svg" alt="samandehi" className="max-h-full" /></div>
-              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center"><img src="/BankShahr.svg" alt="bank" className="max-h-full" /></div>
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/Enamad.svg" alt="enamad" className="max-h-full" /></div>
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/Samandehi.svg" alt="samandehi" className="max-h-full" /></div>
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/BankShahr.svg" alt="bank" className="max-h-full" /></div>
+              <div className="h-12 w-12 bg-white rounded-lg p-1 flex items-center justify-center hover:scale-105 transition-transform"><img src="/al.svg" alt="al" className="max-h-full" /></div>
             </div>
             <p className="text-[10px] text-slate-500 font-medium leading-relaxed">{CONTACT_INFO.address}</p>
           </div>
