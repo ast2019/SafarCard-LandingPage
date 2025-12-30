@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 
 const SafarCard: React.FC = () => {
-  // لیست تصاویر کارت‌ها
+  // اصلاح آدرس‌ها: حذف اسلش اول برای سازگاری با base: './'
+  // مطمئن شوید که پوشه safarcards دقیقاً داخل پوشه public قرار دارد
   const cards = [
-    "/safarcards/01.jpg",
-    "/safarcards/02.jpg",
-    "/safarcards/03.jpg"
+    "safarcards/01.jpg",
+    "safarcards/02.jpg",
+    "safarcards/03.jpg"
   ];
 
   // مدیریت ترتیب کارت‌ها (ایندکس‌ها)
@@ -66,8 +67,9 @@ const SafarCard: React.FC = () => {
                   alt={`Safar Card ${originalIndex + 1}`} 
                   className="w-full h-full object-cover"
                   onError={(e) => {
+                    console.error(`Image failed to load: ${src}`);
                     // Fallback if image fails
-                    (e.target as HTMLImageElement).src = 'https://placehold.co/600x380/1a1a1a/FFF?text=Card+Image';
+                    (e.target as HTMLImageElement).src = 'https://placehold.co/600x380/1a1a1a/FFF?text=Image+Not+Found';
                   }}
                 />
                 
