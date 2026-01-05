@@ -29,6 +29,19 @@
     .reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
     .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
     .dir-ltr { direction: ltr; }
+    
+    /* Scroll Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(to left, #ea4037, #ff6b63);
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 2px 4px rgba(234, 64, 55, 0.2);
+    }
   </style>
 <script type="importmap">
 {
@@ -54,9 +67,11 @@
 </script>
 </head>
 <body>
+  <div class="scroll-progress" id="progress-bar"></div>
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
   <script>
+    // Existing intersection observer
     window.addEventListener('scroll', () => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -67,6 +82,24 @@
       }, { threshold: 0.1 });
       document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
     });
+
+    // Scroll Progress Logic
+    function updateScrollProgress() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      
+      if (height > 0) {
+        const scrolled = (winScroll / height) * 100;
+        const progressBar = document.getElementById("progress-bar");
+        if (progressBar) {
+          progressBar.style.width = scrolled + "%";
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateScrollProgress);
+    // Initial call to set state
+    updateScrollProgress();
   </script>
 </body>
 </html>

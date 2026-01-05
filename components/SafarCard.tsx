@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const SafarCard: React.FC = () => {
-  // Fix: Use absolute paths starting with / for public assets
+  // Use absolute paths for public assets
   const cards = [
     "/safarcards/01.jpg",
     "/safarcards/03.jpg",
@@ -59,7 +59,7 @@ const SafarCard: React.FC = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
                     console.error(`Failed to load image: ${src}`);
-                    // Fallback to online image if local fails
+                    // Fallback to online image if local fails to ensure UI doesn't break
                     const fallbacks = [
                       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop",
                       "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop",
