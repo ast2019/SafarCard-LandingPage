@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const SafarCard: React.FC = () => {
-  // Fix: Use absolute paths for public assets to ensure correct loading from root
+  // Fix: Use absolute paths starting with / for public assets
   const cards = [
     "/safarcards/01.jpg",
     "/safarcards/03.jpg",
