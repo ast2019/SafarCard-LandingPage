@@ -1,0 +1,69 @@
+@font-face {
+  font-family: Vazirmatn;
+  src: url('/fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Vazirmatn;
+  src: url('/fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Vazirmatn;
+  src: url('/fonts/Vazirmatn-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Vazirmatn;
+  src: url('/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Vazirmatn;
+  src: url('/fonts/Vazirmatn-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Vazirmatn;
+  src: url('/fonts/Vazirmatn-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, ::after, ::before { font-family: "Vazirmatn", sans-serif !important; }
+html, body { scroll-behavior: smooth; background-color: #f8fafc; color: #0f172a; overflow-x: hidden; }
+.reveal-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+.dir-ltr { direction: ltr; }
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to left, #ea4037, #ff6b63);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 2px 4px rgba(234, 64, 55, 0.2);
+}
