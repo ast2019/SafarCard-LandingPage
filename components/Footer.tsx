@@ -34,9 +34,9 @@ const Footer: React.FC = () => {
                 >
                   <div 
                     className="w-5 h-5 bg-slate-400 group-hover:bg-white mask-icon" 
-                    style={{ 
-                      maskImage: `url(https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${social}.svg)`, 
-                      WebkitMaskImage: `url(https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${social}.svg)`, 
+                    style={{
+                      maskImage: `url(/icons/${social}.svg)`,
+                      WebkitMaskImage: `url(/icons/${social}.svg)`,
                       maskRepeat: 'no-repeat', 
                       WebkitMaskRepeat: 'no-repeat', 
                       maskSize: 'contain', 
